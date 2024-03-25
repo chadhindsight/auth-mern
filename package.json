@@ -2,6 +2,7 @@
   "name": "auth-mern",
   "version": "1.0.0",
   "description": "A MERN stack app with a React SPA frontend with a focus on authentication. It is an inventory system for a furniture warehouse.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
