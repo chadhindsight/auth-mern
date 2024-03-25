@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "A MERN stack app with a React SPA frontend with a focus on authentication. It is an inventory system for a furniture warehouse.",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Chad Hinds",
   "license": "MIT",
@@ -17,5 +19,8 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
