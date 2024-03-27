@@ -9,9 +9,7 @@ const app = express();
 // Allows use access to endpoints related to "/api/users"
 app.use('/api/users', userRoutes);
 
-app.get('/', (req, res) => {
-    res.send("Server is up and running!")
-})
+
 // middlewares
 app.use(notFound)
 app.use(errorHandler)
