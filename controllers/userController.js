@@ -1,13 +1,13 @@
 import asyncHandler from 'express-async-handler';
+import User from '../models/userModel.js';
 
 const authUser = asyncHandler(async (req, res) => {
     res.status(200).json({ message: "Auth User ting" })
 })
-
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-    // Register a new user
+
     const { name, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
@@ -60,10 +60,10 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @route   POST /api/users/logout
 // @access  Public
 const logoutUser = (req, res) => {
-    // res.cookie('jwt', '', {
-    //     httpOnly: true,
-    //     expires: new Date(0),
-    // });
+    res.cookie('jwt', '', {
+        httpOnly: true,
+        expires: new Date(0),
+    });
     res.status(200).json({ message: 'Logged out successfully' });
 };
 
