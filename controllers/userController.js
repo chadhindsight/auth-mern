@@ -4,10 +4,10 @@ const authUser = asyncHandler(async (req, res) => {
     res.status(200).json({ message: "Auth User ting" })
 })
 
-// Register a new user
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
+    // Register a new user
     const { name, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
