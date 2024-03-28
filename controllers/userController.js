@@ -1,13 +1,14 @@
 import asyncHandler from 'express-async-handler';
+import User from '../models/userModel.js';
+import generateToken from '../utils/generateToken.js';
 
 const authUser = asyncHandler(async (req, res) => {
     res.status(200).json({ message: "Auth User ting" })
 })
-
-// Register a new user
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
+
     const { name, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
@@ -33,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
         });
     } else {
         res.status(400);
-        throw new Error('Invalid user data');
+        throw new Error('Sorry, invalid user data');
     }
 });
 
@@ -60,10 +61,10 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @route   POST /api/users/logout
 // @access  Public
 const logoutUser = (req, res) => {
-    // res.cookie('jwt', '', {
-    //     httpOnly: true,
-    //     expires: new Date(0),
-    // });
+    res.cookie('jwt', '', {
+        httpOnly: true,
+        expires: new Date(0),
+    });
     res.status(200).json({ message: 'Logged out successfully' });
 };
 
