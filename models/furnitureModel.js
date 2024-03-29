@@ -24,6 +24,5 @@ const FurnitureSchema = mongoose.Schema({
     timestamps: true
 })
 
-const Furniture = mongoose.model('Furniture', FurnitureSchema)
-
+const Furniture = mongoose.model('Furniture', FurnitureSchema);
 export default Furniture
