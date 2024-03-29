@@ -13,3 +13,7 @@ const addProduct = asyncHandler(async () => {
     }
 
 })
+
+export {
+    addProduct
+}
