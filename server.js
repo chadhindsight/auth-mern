@@ -6,14 +6,14 @@ import { connectDB } from './config/database.js';
 dotenv.config();
 
 connectDB()
-const PORT = process.env.PORT || 5006;
+const PORT = process.env.PORT || 5005;
 const app = express();
 app.use(express.json());
 
 // Allows us to send form data
 app.use(express.urlencoded({ extended: true }));
 
-// Allows use access to endpoints related to "/api/users"
+// Allows access to endpoints related to "/api/users"
 app.use('/api/users', userRoutes);
 
 
