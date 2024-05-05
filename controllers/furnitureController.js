@@ -3,7 +3,7 @@ import Furniture from '../models/furnitureModel.js';
 
 // @route   POST /api/furniture
 // @access  Private
-const addProduct = asyncHandler(async () => {
+const addFurniture = asyncHandler(async () => {
     const { name, price, quantity } = req.body
 
     const furniture = {
@@ -13,3 +13,7 @@ const addProduct = asyncHandler(async () => {
     }
 
 })
+// patty
+export {
+    addFurniture
+}
