@@ -13,7 +13,7 @@ const addFurniture = asyncHandler(async () => {
     }
 
 })
-// patty
+
 export {
     addFurniture
 }
