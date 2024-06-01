@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import expressAsyncHandler from 'express-async-handler';
-import User from '../models/userModel';
+import User from '../models/userModel.js';
 
 // Used to protect certain routes from open access
 const protect = expressAsyncHandler(async (req, res, next) => {
