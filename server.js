@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import { connectDB } from './config/database.js';
+import cookieParser from "cookie-parser";
+
 dotenv.config();
 
 connectDB()
