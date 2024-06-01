@@ -8,3 +8,6 @@ import {
     updateFurniture,
     deleteFurniture
 } from '../controllers/furnitureController'
+
+const router = express.Router();
+dfdsfdsfrore
