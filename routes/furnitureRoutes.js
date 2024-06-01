@@ -10,4 +10,5 @@ import {
 } from '../controllers/furnitureController'
 
 const router = express.Router();
-dfdsfdsfrore
+
+export default router;
