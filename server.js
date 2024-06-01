@@ -14,6 +14,7 @@ app.use(express.json());
 
 // Allows us to send form data
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Allows access to endpoints related to "/api/users"
 app.use('/api/users', userRoutes);
