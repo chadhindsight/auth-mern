@@ -15,11 +15,6 @@ const FurnitureSchema = mongoose.Schema({
         required: true,
         default: 1
     },
-    id: {
-        type: Number,
-        required: true,
-        unique: true
-    }
 }, {
     timestamps: true
 })
