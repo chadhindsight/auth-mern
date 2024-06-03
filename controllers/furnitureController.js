@@ -83,7 +83,7 @@ const updateFurniture = asyncHandler(async (req, res) => {
     }
 });
 
-// @route  DELETE / api/furniture/id
+// @route  DELETE / api/furniture/:id
 // @access Private
 const deleteFurniture = asyncHandler(async (req, res) => {
     const furnitureID = req.params._id;
