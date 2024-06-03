@@ -7,7 +7,20 @@ import {
     getListOfFurniture,
     updateFurniture,
     deleteFurniture
-} from '../controllers/furnitureController'
+} from '../controllers/furnitureController.js'
 
 const router = express.Router();
-dfdsfdsfrore
+
+// NB: all furniture routes should be protected
+router.post('/', protect, addFurniture);
+
+router.get('/:id', protect, getFurniture);
+
+router.get('/', protect, getListOfFurniture);
+
+router.patch('/:id', protect, updateFurniture);
+
+// Delete
+router.delete('/:id', protect, deleteFurniture);
+
+export default router;
