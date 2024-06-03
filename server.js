@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
+import furnitureRoutes from './routes/furnitureRoutes.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import { connectDB } from './config/database.js';
 import cookieParser from "cookie-parser";
@@ -8,7 +9,7 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 
 connectDB()
-const PORT = process.env.PORT || 5005;
+const PORT = process.env.PORT || 5003;
 const app = express();
 app.use(express.json());
 
@@ -18,7 +19,7 @@ app.use(cookieParser());
 
 // Allows access to endpoints related to "/api/users"
 app.use('/api/users', userRoutes);
-
+app.use('/api/furniture', furnitureRoutes);
 
 // middlewares
 app.use(notFound)
