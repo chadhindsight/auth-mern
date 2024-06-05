@@ -24,7 +24,7 @@ const addFurniture = asyncHandler(async (req, res) => {
         }
 
         Furniture.create(furniture)
-        res.status(200).json({ message: 'Item successfully added!' });
+        res.status(200).json({ message: 'Item successfully added!', ...furniture });
     }
 
     else {
@@ -86,10 +86,12 @@ const updateFurniture = asyncHandler(async (req, res) => {
 // @route  DELETE / api/furniture/:id
 // @access Private
 const deleteFurniture = asyncHandler(async (req, res) => {
-    const furnitureID = req.params._id;
+    const furnitureID = req.params.id;
 
+    console.log('running' + furnitureID)
     if (furnitureID) {
-        Furniture.deleteOne({ id: req.params._id })
+        await Furniture.deleteOne({ _id: req.params.id })
+        res.json({ message: 'Furniture deleted successfully!' });
     }
     else {
         res.status(404);
