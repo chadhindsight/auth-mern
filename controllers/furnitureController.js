@@ -6,7 +6,7 @@ import Furniture from '../models/furnitureModel.js';
 const addFurniture = asyncHandler(async (req, res) => {
     const { name, price, quantity } = req.body
 
-    // Function to create a case-insensitive regex query
+    // Function to create a case-insensitive regex query used to check if item name is already present in the db
     const createRegexQuery = (input) => {
         const lowercaseInput = input.toLowerCase();
         return new RegExp('^' + lowercaseInput + '$', 'i');
@@ -70,7 +70,7 @@ const updateFurniture = asyncHandler(async (req, res) => {
         furniture.quantity = req.body.quantity || furniture.quantity;
 
 
-        const updatedFurniture = await furniture.save();
+        await furniture.save();
 
         res.json({
             id: furniture._id,
