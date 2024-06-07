@@ -1,4 +1,8 @@
-# Furniture Store Web App
+# Furniture Inventory Managment App
+
+This is a fullstack web application that gives users the chance to perform CRUD operations in order to keep track of the product inventory for a furniture store.
+
+## How it works
 
 ## Learn More
 
