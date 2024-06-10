@@ -1,7 +1,7 @@
 import React from "react";
 
 const NavAndHeader = () => {
-  // deadass why bother
+  // Nav items
   return <></>;
 };
 
