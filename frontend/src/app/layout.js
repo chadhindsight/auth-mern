@@ -11,7 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* Layout UI: NavBar should go here since it's shared across all routes */}
+        {children}
+      </body>
     </html>
   );
 }
