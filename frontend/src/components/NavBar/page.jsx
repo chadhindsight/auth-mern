@@ -1,8 +1,15 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import styles from "./NavBar.module.css";
 
 const NavAndHeader = () => {
+  const iconValues = [
+    "/images/user.png",
+    "/images/search.png",
+    "/images/shopping-bag.png",
+  ];
+
   return (
     <nav className={styles.navBar}>
       <h1>Furniture</h1>
@@ -16,12 +23,17 @@ const NavAndHeader = () => {
         <p>Outlet</p>
       </section>
       <div className={styles.icons}>
-        <Image src="/images/user.png" width={25} height={24} />
-        <Image src="/images/search.png" width={25} height={24} />
-        <Image src="/images/shopping-bag.png" width={25} height={24} />
+        {iconValues.map((iconSrc, index) => (
+          <Image key={index} src={iconSrc} width={25} height={24} alt="" />
+        ))}
       </div>
     </nav>
   );
 };
 
 export default NavAndHeader;
+//   <div className={styles.icons}>
+//         <Image src="/images/user.png" width={25} height={24} />
+//         <Image src="/images/search.png" width={25} height={24} />
+//         <Image src="/images/shopping-bag.png" width={25} height={24} />
+//       </div>

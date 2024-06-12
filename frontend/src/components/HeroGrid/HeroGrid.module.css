@@ -1,0 +1,36 @@
+.heroGrid {
+  margin: 0px 5%;
+  display: grid;
+  min-height: 500px;
+  height: 70vh;
+  grid-template-rows: 75% 25%;
+  grid-template-columns: 75% 25%;
+  grid-template-areas:
+    "featuredProduct secondaryProduct"
+    "featuredProduct CTA";
+}
+
+.featuredProduct {
+  grid-area: featuredProduct;
+  background-image: url("../images/furniture1.png");
+}
+
+.secondaryProduct {
+  grid-area: secondaryProduct;
+  background-image: url("../images/furniture2.png");
+}
+
+.CTA {
+  grid-area: CTA;
+  background-image: url("../images/woodbg.png");
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.headline {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 5px solid #ff6200;
+  position: absolute;
+  right: -50px;
+  top: 100px;
+}
