@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const HeroGrid = () => {
   return (
     <section id="heroGrid">
       <div id="featuredProduct" class="heroGridArea">
@@ -21,4 +21,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeroGrid;
