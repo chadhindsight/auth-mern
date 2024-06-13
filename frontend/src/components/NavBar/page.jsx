@@ -32,8 +32,3 @@ const NavAndHeader = () => {
 };
 
 export default NavAndHeader;
-//   <div className={styles.icons}>
-//         <Image src="/images/user.png" width={25} height={24} />
-//         <Image src="/images/search.png" width={25} height={24} />
-//         <Image src="/images/shopping-bag.png" width={25} height={24} />
-//       </div>
