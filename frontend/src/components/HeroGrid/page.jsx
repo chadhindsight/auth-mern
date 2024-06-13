@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const HeroGrid = () => {
@@ -15,7 +16,7 @@ const HeroGrid = () => {
       <div className="secondaryProduct heroGridArea"></div>
       <div className="CTA heroGridArea">
         <h4 className="shop">Shop Now</h4>
-        <Image src="images/arrow-right.png" />
+        <Image src="/images/arrow-right.png" width={25} height={30} />
       </div>
     </section>
   );
