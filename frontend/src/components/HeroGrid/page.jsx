@@ -17,7 +17,7 @@ const HeroGrid = () => {
         className={`${styles.secondaryProduct} ${styles.heroGridArea}`}
       ></div>
       <div className={`${styles.CTA} ${styles.heroGridArea}`}>
-        <h4>Shop Now</h4>
+        <h4 className={styles.textStyles}>Shop Now</h4>
         <Image src="/images/arrow-right.png" width={25} height={30} />
       </div>
     </section>
