@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar/page";
+import NavBar from "@/components/NavBar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Layout UI: NavBar should go here since it's shared across all routes */}
+        {/* Layout UI: NavBar should go here since it's shared across all routes/pages */}
         <NavBar />
         {children}
       </body>

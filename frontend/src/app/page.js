@@ -1,4 +1,4 @@
-import HeroGrid from "@/components/HeroGrid/page";
+import HeroGrid from "@/components/HeroGrid/HeroGrid";
 
 export default function Home() {
   return (
