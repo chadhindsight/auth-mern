@@ -10,18 +10,25 @@ const NavAndHeader = () => {
     "/images/shopping-bag.png",
   ];
 
+  const navItemValues = [
+    { name: "Just In", className: styles.highlight },
+    { name: "Furniture" },
+    { name: "Rest" },
+    { name: "Decoration" },
+    { name: "Outdoor" },
+    { name: "Magazine" },
+    { name: "Outlet" },
+  ];
+
   return (
     <nav className={styles.navBar}>
       <h1>Furniture</h1>
       <section className={styles.navigation}>
-        <p className={styles.highlight}>Just In</p>
-        <p>Furniture</p>
-        <p>Rest</p>
-        <p>Decoration</p>
-        <p>Outdoor</p>
-        <p>Magazine</p>
-        <p>Outlet</p>
+        {navItemValues.map((item, index) => (
+          <p className={item.className || ""}>{item.name}</p>
+        ))}
       </section>
+
       <div className={styles.icons}>
         {iconValues.map((iconSrc, index) => (
           <Image key={index} src={iconSrc} width={25} height={24} alt="" />
