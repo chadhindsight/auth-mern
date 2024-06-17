@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import styles from "./NavBar.module.css";
 
-const NavAndHeader = () => {
+const NavBar = () => {
   const iconValues = [
     "/images/user.png",
     "/images/search.png",
@@ -25,7 +25,9 @@ const NavAndHeader = () => {
       <h1>Furniture</h1>
       <section className={styles.navigation}>
         {navItemValues.map((item, index) => (
-          <p className={item.className || ""}>{item.name}</p>
+          <p key={item.name} className={item.className || ""}>
+            {item.name}
+          </p>
         ))}
       </section>
 
@@ -38,4 +40,4 @@ const NavAndHeader = () => {
   );
 };
 
-export default NavAndHeader;
+export default NavBar;
