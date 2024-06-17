@@ -10,7 +10,7 @@ import {
 
 const router = express.Router();
 
-// "api/users" is already connected to this file so we only need '/auth'
+// "api/users" is already connected to this file so we only need '/auth', '/logout', etc
 router.post('/auth', authUser);
 router.post('/', registerUser);
 router.post('/logout', logoutUser)
