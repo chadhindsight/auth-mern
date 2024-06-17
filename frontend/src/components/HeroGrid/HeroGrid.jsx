@@ -18,7 +18,12 @@ const HeroGrid = () => {
       ></div>
       <div className={`${styles.CTA} ${styles.heroGridArea}`}>
         <h4 className={styles.textStyles}>Shop Now</h4>
-        <Image src="/images/arrow-right.png" width={25} height={30} />
+        <Image
+          src="/images/arrow-right.png"
+          width={25}
+          height={30}
+          alt="shop now"
+        />
       </div>
     </section>
   );
