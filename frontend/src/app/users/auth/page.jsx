@@ -2,12 +2,13 @@
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/app/context/authContext";
 import { useContext, useState } from "react";
+import styles from "./temp.module.css";
 import Toast from "@/components/Toast/Toast";
 
 const AuthPage = () => {
   const router = useRouter();
 
-  const { login, logout, user } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const [showToast, setShowToast] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -30,13 +31,12 @@ const AuthPage = () => {
       <form onSubmit={handleSubmit}>
         <input type="email" name="email" placeholder="Email" />
         <input type="password" name="password" placeholder="Password" />
-        <button type="submit">Login</button>
+        <button type="submit" className={styles.deez}>
+          Login
+        </button>
       </form>
       {showToast && (
-        <Toast
-          message="Login failed. Please check your credentials."
-          onClose={handleCloseToast}
-        />
+        <Toast message="Login failed. Please check your credentials." />
       )}
     </>
   );

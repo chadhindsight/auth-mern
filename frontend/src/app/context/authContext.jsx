@@ -47,6 +47,28 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const updateUserProfile = async (userData) => {
+    try {
+      const response = await fetch("/api/users/profile", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (response.ok) {
+        const updatedUser = await response.json();
+        setUser(updatedUser);
+      } else {
+        throw new Error("Sorry, cannot update at this time");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  };
+
   const logout = async () => {
     try {
       const response = await fetch("/api/users/logout", {
@@ -68,7 +90,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, signup }}>
+    <AuthContext.Provider
+      value={{ user, login, logout, signup, updateUserProfile }}
+    >
       {children}
     </AuthContext.Provider>
   );
