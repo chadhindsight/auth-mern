@@ -1,45 +1,103 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/app/context/authContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import styles from "./temp.module.css";
 import Toast from "@/components/Toast/Toast";
 
-const AuthPage = () => {
-  const router = useRouter();
+const Modal = () => {
+  const [isOpen, setIsOpen] = useState(true); // Modal opens by default
+  const [formType, setFormType] = useState(null);
+  const { login, signup } = useContext(AuthContext);
 
-  const { login } = useContext(AuthContext);
-  const [showToast, setShowToast] = useState(false);
+  const closeModal = () => {
+    setIsOpen(false);
+    setFormType(null);
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, email, password) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password);
     try {
-      await login(email, password);
-      // Redirect to the home page or perform other actions
-      router.push("/");
+      if (formType === "login") {
+        await login(email, password);
+      } else if (formType === "signup") {
+        await signup(email, password);
+      }
+      closeModal();
     } catch (error) {
-      // Handle login error
-      setShowToast(true);
+      console.error("Error:", error);
     }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input type="email" name="email" placeholder="Email" />
-        <input type="password" name="password" placeholder="Password" />
-        <button type="submit" className={styles.deez}>
-          Login
-        </button>
-      </form>
-      {showToast && (
-        <Toast message="Login failed. Please check your credentials." />
+    <section>
+      {isOpen && (
+        <dialog className={styles.modal} open>
+          <article className={styles.modalContent}>
+            <button className={styles.close} onClick={closeModal}>
+              &times;
+            </button>
+            {formType ? (
+              <Form
+                onSubmit={handleSubmit}
+                formType={formType}
+                styles={styles}
+              />
+            ) : (
+              <div className={styles.buttonContainer}>
+                <button
+                  onClick={() => setFormType("login")}
+                  className={styles.authButton}
+                >
+                  Log In
+                </button>
+                <button
+                  onClick={() => setFormType("signup")}
+                  className={styles.authButton}
+                >
+                  Sign Up
+                </button>
+              </div>
+            )}
+          </article>
+        </dialog>
       )}
-    </>
+    </section>
   );
 };
 
-export default AuthPage;
+const Form = ({ onSubmit, formType, styles }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+
+  const handleFormSubmit = (e) => {
+    onSubmit(e, email, password);
+  };
+
+  return (
+    <form className={styles.form} onSubmit={handleFormSubmit}>
+      <input
+        className={styles.input}
+        type="email"
+        value={email}
+        onChange={handleEmailChange}
+        placeholder="Email"
+      />
+      <input
+        className={styles.input}
+        type="password"
+        value={password}
+        onChange={handlePasswordChange}
+        placeholder="Password"
+      />
+      <button className={styles.submitButton} type="submit">
+        {formType === "login" ? "Log In" : "Sign Up"}
+      </button>
+    </form>
+  );
+};
+
+export default Modal;
