@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/app/context/authContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Toast from "@/components/Toast/Toast";
 
 const AuthPage = () => {
