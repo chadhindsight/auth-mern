@@ -1,14 +1,17 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/app/context/authContext";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import styles from "./temp.module.css";
 import Toast from "@/components/Toast/Toast";
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(true); // Modal opens by default
   const [formType, setFormType] = useState(null);
+  const [toastMessage, setToastMessage] = useState(null);
+  const [showToast, setShowToast] = useState(false);
   const { login, signup } = useContext(AuthContext);
+  const router = useRouter();
 
   const closeModal = () => {
     setIsOpen(false);
@@ -23,9 +26,19 @@ const Modal = () => {
       } else if (formType === "signup") {
         await signup(email, password);
       }
+      setToastMessage("Success! Redirecting to home page...");
+      setShowToast(true);
       closeModal();
+      setTimeout(() => {
+        setShowToast(false);
+        router.push("/"); // Redirect to home page
+      }, 2000);
     } catch (error) {
-      console.error("Error:", error);
+      setToastMessage("Error: " + error.message);
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
     }
   };
 
@@ -62,6 +75,7 @@ const Modal = () => {
           </article>
         </dialog>
       )}
+      {showToast && <Toast message={toastMessage} />}
     </section>
   );
 };
