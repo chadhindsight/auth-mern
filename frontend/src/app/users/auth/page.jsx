@@ -4,6 +4,7 @@ import { AuthContext } from "@/app/context/authContext";
 import { useContext, useState } from "react";
 import styles from "./authPage.module.css";
 import Toast from "@/components/Toast/Toast";
+import Form from "@/components/Form/Form";
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(true); // Modal opens by default
@@ -77,40 +78,6 @@ const Modal = () => {
       )}
       {showToast && <Toast message={toastMessage} />}
     </section>
-  );
-};
-
-const Form = ({ onSubmit, formType, styles }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-
-  const handleFormSubmit = (e) => {
-    onSubmit(e, email, password);
-  };
-
-  return (
-    <form className={styles.form} onSubmit={handleFormSubmit}>
-      <input
-        className={styles.input}
-        type="email"
-        value={email}
-        onChange={handleEmailChange}
-        placeholder="Email"
-      />
-      <input
-        className={styles.input}
-        type="password"
-        value={password}
-        onChange={handlePasswordChange}
-        placeholder="Password"
-      />
-      <button className={styles.submitButton} type="submit">
-        {formType === "login" ? "Log In" : "Sign Up"}
-      </button>
-    </form>
   );
 };
 

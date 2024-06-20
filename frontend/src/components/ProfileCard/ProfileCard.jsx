@@ -6,7 +6,11 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileCard = () => {
-  // TODO: context,
+  // TODO: context, updateUser*
+
+  //TO updateUser, you can use the same form defined in auth,
+  // FLow: a user clicks on the edit button which brings up a form where they can change their user name
+
   return (
     <section className={styles.card}>
       <header className={styles.header}>
