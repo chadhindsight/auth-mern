@@ -6,6 +6,24 @@
   max-width: 25rem;
   margin: 0 auto;
 }
+.editIconWrapper {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.editIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #888;
+  padding: 0.5rem;
+}
+
+.editIcon:hover {
+  color: #4285f4;
+}
 
 .header {
   display: flex;

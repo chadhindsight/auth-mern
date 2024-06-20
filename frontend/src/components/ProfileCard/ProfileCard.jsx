@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ProfileCard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileCard = () => {
   // NB: see example use case in /auth page
@@ -15,6 +15,11 @@ const ProfileCard = () => {
 
   return (
     <section className={styles.card}>
+      <div className={styles.editIconWrapper}>
+        <button className={styles.editIcon}>
+          <FontAwesomeIcon icon={faPencilAlt} />
+        </button>
+      </div>
       <header className={styles.header}>
         <figure className={styles.picture}>
           <img src="profile-picture.jpg" alt="Profile Picture" />
