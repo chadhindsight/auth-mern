@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/app/context/authContext";
 import { useContext, useState } from "react";
-import styles from "./temp.module.css";
+import styles from "./authPage.module.css";
 import Toast from "@/components/Toast/Toast";
 
 const Modal = () => {
