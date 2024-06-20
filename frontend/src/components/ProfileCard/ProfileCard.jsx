@@ -1,5 +1,10 @@
+"use client";
 import React from "react";
 import styles from "./ProfileCard.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Toast from "../Toast/Toast";
 
 const ProfileCard = () => {
   return (
@@ -15,10 +20,10 @@ const ProfileCard = () => {
       </header>
       <nav className={styles.actions}>
         <a href="#" className={styles.actionLink}>
-          <i className="fab fa-linkedin"></i>
+          <FontAwesomeIcon icon={faLinkedin} />
         </a>
         <a href="#" className={styles.actionLink}>
-          <i className="fas fa-envelope"></i>
+          <FontAwesomeIcon icon={faEnvelope} />
         </a>
         <button className={styles.logoutBtn}>Logout</button>
       </nav>
