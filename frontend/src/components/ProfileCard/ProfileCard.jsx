@@ -15,18 +15,16 @@ const ProfileCard = () => {
 
   return (
     <section className={styles.card}>
-      <div className={styles.editIconWrapper}>
-        <button className={styles.editIcon}>
-          <FontAwesomeIcon icon={faPencilAlt} />
-        </button>
-      </div>
+      <button className={styles.editIcon}>
+        <FontAwesomeIcon icon={faPencilAlt} />
+      </button>
       <header className={styles.header}>
         <figure className={styles.picture}>
           <img src="profile-picture.jpg" alt="Profile Picture" />
         </figure>
         <div className={styles.info}>
-          <h2>CodingLab</h2>
-          <p>YouTuber & Blogger</p>
+          <h2>Furniture Associate</h2>
+          <p>Lorem Ipsum Deez</p>
         </div>
       </header>
       <nav className={styles.actions}>
