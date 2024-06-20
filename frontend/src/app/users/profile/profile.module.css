@@ -1,0 +1,63 @@
+.card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.picture {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1.25rem;
+}
+
+.picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.info p {
+  margin: 0.3125rem 0 0;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actionLink {
+  color: #333;
+  font-size: 1.25rem;
+  margin: 0 0.625rem;
+  text-decoration: none;
+}
+
+.logoutBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  font-size: 0.875rem;
+}
