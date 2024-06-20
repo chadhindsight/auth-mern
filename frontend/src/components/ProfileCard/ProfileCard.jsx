@@ -4,9 +4,9 @@ import styles from "./ProfileCard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import Toast from "../Toast/Toast";
 
 const ProfileCard = () => {
+  // TODO: context,
   return (
     <section className={styles.card}>
       <header className={styles.header}>
