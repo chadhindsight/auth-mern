@@ -26,7 +26,11 @@ const Form = ({ onSubmit, formType, styles }) => {
         placeholder="Password"
       />
       <button className={styles.submitButton} type="submit">
-        {formType === "login" ? "Log In" : "Sign Up"}
+        {formType === "login"
+          ? "Log In"
+          : formType === "signup"
+          ? "Sign Up"
+          : "Edit"}
       </button>
     </form>
   );
