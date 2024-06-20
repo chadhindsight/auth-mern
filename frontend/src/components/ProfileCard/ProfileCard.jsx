@@ -6,6 +6,8 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileCard = () => {
+  // NB: see example use case in /auth page
+  const [formType, setFormType] = useState(null);
   // TODO: context, updateUser*
 
   //TO updateUser, you can use the same form defined in auth,
