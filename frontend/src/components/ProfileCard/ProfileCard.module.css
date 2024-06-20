@@ -78,3 +78,7 @@
   border: none;
   font-size: 0.875rem;
 }
+
+.logoutBtn:hover {
+  background-color: #2c3e50;
+}
