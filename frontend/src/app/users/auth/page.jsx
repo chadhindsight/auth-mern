@@ -32,7 +32,7 @@ const Modal = () => {
       closeModal();
       setTimeout(() => {
         setShowToast(false);
-        router.push("/"); // Redirect to home page
+        router.push("/");
       }, 2000);
     } catch (error) {
       setToastMessage("Error: " + error.message);
