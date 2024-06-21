@@ -1,29 +1,25 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./ProfileCard.module.css";
-import { useContext, useState } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "@/app/context/authContext";
+import Form from "@/components/Form/Form";
 
 const ProfileCard = () => {
-  // TODO: context, updateUser*
+  const [isEditing, setIsEditing] = useState(false);
+  const { updateUserProfile, user } = useContext(AuthContext);
 
   const handleEditClick = () => {
     setIsEditing(true);
   };
 
-  const { updateUserProfile, user } = useContext(AuthContext);
-
-  const handleSubmit = async (e, email, password) => {
+  const handleFormSubmit = async (e, email, password) => {
     e.preventDefault();
-    // FLow: a user clicks on the edit button which brings up a form where they can change their user name
-    //TO updateUser, you can use the same form defined in auth,
     try {
       await updateUserProfile({ email, password });
-      setIsEditing(!setIsEditing);
+      setIsEditing(false);
     } catch (error) {
       console.error("Error updating profile:", error);
     }
@@ -33,23 +29,23 @@ const ProfileCard = () => {
     <section className={styles.card}>
       {isEditing ? (
         <Form
-          onSubmit={handleSubmit}
+          onSubmit={handleFormSubmit}
           formType="edit"
           styles={styles}
           initialEmail={user.email}
         />
       ) : (
         <>
-          <button className={styles.editIcon}>
-            <FontAwesomeIcon icon={faPencilAlt} onClick={handleEditClick} />
+          <button className={styles.editIcon} onClick={handleEditClick}>
+            <FontAwesomeIcon icon={faPencilAlt} />
           </button>
           <header className={styles.header}>
             <figure className={styles.picture}>
               <img src="profile-picture.jpg" alt="Profile Picture" />
             </figure>
             <div className={styles.info}>
-              <h2>Furniture Associate</h2>
-              <p>Lorem Ipsum Deez</p>
+              <h2>{user.name}</h2>
+              <p>{user.bio}</p>
             </div>
           </header>
           <nav className={styles.actions}>
