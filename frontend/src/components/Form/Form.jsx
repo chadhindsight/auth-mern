@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 const Form = ({ onSubmit, formType, styles, initialEmail }) => {
-  const [email, setEmail] = useState(initialEmail || "");
+  const [emailAddy, setEmailAddy] = useState(initialEmail || "");
   const [password, setPassword] = useState("");
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handleEmailChange = (e) => setEmailAddy(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onSubmit(e, email, password);
+    onSubmit(e, emailAddy, password);
   };
 
   return (
@@ -17,7 +17,7 @@ const Form = ({ onSubmit, formType, styles, initialEmail }) => {
       <input
         className={styles.input}
         type="email"
-        value={email}
+        value={emailAddy}
         onChange={handleEmailChange}
         placeholder="Email"
       />
