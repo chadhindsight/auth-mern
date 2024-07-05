@@ -11,7 +11,7 @@ const Form = ({ onSubmit, formType, styles, initialEmail }) => {
     e.preventDefault();
     onSubmit(e, email, password);
   };
-
+  // BS push
   return (
     <form className={styles.form} onSubmit={handleFormSubmit}>
       <input
